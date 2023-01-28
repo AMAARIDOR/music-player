@@ -1,5 +1,3 @@
-// Songs List:
-
 const songs_list = [
   {
     name: "On tha Linë",
