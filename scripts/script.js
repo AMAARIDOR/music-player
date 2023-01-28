@@ -1,3 +1,5 @@
+"use strict";
+
 // Counter Variables:
 
 let track_index = 0;
@@ -5,30 +7,23 @@ let is_playing = false;
 
 // Functions:
 
-function changeTrack() {
+function updateTrack() {
   audio_element.src = songs_list[track_index].path;
-}
-
-function loopTracks() {
-  if (track_index === songs_list.length) {
-    track_index = 0;
-  } else if (track_index < 0) {
-    track_index = songs_list.length - 1;
-  }
+  track_cover.src = songs_list[track_index].image;
+  track_name.textContent = songs_list[track_index].name;
+  track_artist.textContent = songs_list[track_index].artist;
 }
 
 function nextTrack() {
   track_index += 1;
-  loopTracks();
-  changeTrack();
-  console.log(audio_element.src);
+  if (track_index === songs_list.length) track_index = 0;
+  updateTrack();
 }
 
 function previousTrack() {
   track_index -= 1;
-  loopTracks();
-  changeTrack();
-  console.log(audio_element.src);
+  if (track_index < 0) track_index = songs_list.length - 1;
+  updateTrack();
 }
 
 // Event Handlers:

@@ -1,6 +1,7 @@
 // Elements:
 
 const track_status = document.querySelector(".song-status");
+const track_cover_container = document.querySelector(".song-image-container");
 const track_cover = document.querySelector(".song-image");
 const track_name = document.querySelector(".song-name");
 const track_artist = document.querySelector(".song-artist");
