@@ -1,13 +1,13 @@
-next_button.addEventListener("click", nextTrack);
+nextButton.addEventListener("click", nextTrack);
 
-previous_button.addEventListener("click", previousTrack);
+previousButton.addEventListener("click", previousTrack);
 
-play_pause_button.addEventListener("click", () => {
-  if (!is_playing) {
-    is_playing = true;
+playPauseButton.addEventListener("click", () => {
+  if (!isPlaying) {
+    isPlaying = true;
     loadTrack();
   } else {
-    is_playing = false;
+    isPlaying = false;
     pauseTrack();
   }
 });

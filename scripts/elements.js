@@ -1,19 +1,19 @@
 // Elements:
 
-const track_status = document.querySelector(".song-status");
-const track_cover_container = document.querySelector(".song-image-container");
-const track_cover = document.querySelector(".song-image");
-const track_name = document.querySelector(".song-name");
-const track_artist = document.querySelector(".song-artist");
+const trackStatus = document.querySelector(".song-status");
+const trackCoverContainer = document.querySelector(".song-image-container");
+const trackCover = document.querySelector(".song-image");
+const trackName = document.querySelector(".song-name");
+const trackArtist = document.querySelector(".song-artist");
 
-const current_time = document.querySelector(".current-time");
-const total_duration = document.querySelector(".total-duration");
+const currentTime = document.querySelector(".current-time");
+const totalDuration = document.querySelector(".total-duration");
 
-const seek_slider = document.querySelector(".audio-slider");
-const volume_slider = document.querySelector(".volume-slider");
+const seekSlider = document.querySelector(".audio-slider");
+const volumeSlider = document.querySelector(".volume-slider");
 
-const previous_button = document.querySelector(".previous-button");
-const play_pause_button = document.querySelector(".play-pause-button");
-const next_button = document.querySelector(".next-button");
+const previousButton = document.querySelector(".previous-button");
+const playPauseButton = document.querySelector(".play-pause-button");
+const nextButton = document.querySelector(".next-button");
 
-const audio_element = document.createElement("audio");
+const audioElement = document.createElement("audio");

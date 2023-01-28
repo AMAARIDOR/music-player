@@ -1,38 +1,38 @@
 "use strict";
 
-let track_index = 0;
-let is_playing = false;
+let trackIndex = 0;
+let isPlaying = false;
 
 function updateTrack() {
-  audio_element.src = songs_list[track_index].path;
-  track_status.textContent = `Now playing audio ${track_index + 1} of ${
-    songs_list.length
+  audioElement.src = songsList[trackIndex].path;
+  trackStatus.textContent = `Now playing audio ${trackIndex + 1} of ${
+    songsList.length
   }`;
-  track_cover.src = songs_list[track_index].image;
-  track_name.textContent = songs_list[track_index].name;
-  track_artist.textContent = songs_list[track_index].artist;
+  trackCover.src = songsList[trackIndex].image;
+  trackName.textContent = songsList[trackIndex].name;
+  trackArtist.textContent = songsList[trackIndex].artist;
 }
 
 function loadTrack() {
-  audio_element.play();
+  audioElement.play();
 }
 
 function pauseTrack() {
-  audio_element.pause();
+  audioElement.pause();
 }
 
 function nextTrack() {
-  if (track_index === songs_list.length) track_index = 0;
+  if (trackIndex === songsList.length) trackIndex = 0;
   updateTrack();
   loadTrack();
-  is_playing = true;
-  track_index += 1;
+  isPlaying = true;
+  trackIndex += 1;
 }
 
 function previousTrack() {
-  if (track_index < 0) track_index = songs_list.length - 1;
+  if (trackIndex < 0) trackIndex = songsList.length - 1;
   updateTrack();
   loadTrack();
-  is_playing = true;
-  track_index -= 1;
+  isPlaying = true;
+  trackIndex -= 1;
 }

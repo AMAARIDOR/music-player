@@ -1,4 +1,4 @@
-const songs_list = [
+const songsList = [
   {
     name: "On tha Linë",
     artist: "Yeat",
