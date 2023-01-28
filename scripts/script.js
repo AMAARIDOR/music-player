@@ -1,16 +1,36 @@
-// Elements:
+// Counter Variables:
 
-const track_status = document.querySelector(".song-status");
-const track_cover = document.querySelector(".song-image");
-const track_name = document.querySelector(".song-name");
-const track_artist = document.querySelector(".song-artist");
+let track_index = 0;
+let is_playing = false;
 
-const current_time = document.querySelector(".current-time");
-const total_duration = document.querySelector(".total-duration");
+// Functions:
 
-const seek_slider = document.querySelector(".audio-slider");
-const volume_slider = document.querySelector(".volume-slider");
+function nextTrack() {
+  if (track_index >= 0) track_index += 1;
+  // console.log(track_index);
+}
 
-const previous_button = document.querySelector(".previous-button");
-const play_pause_button = document.querySelector(".play-pause-button");
-const next_button = document.querySelector(".next-button");
+function previousTrack() {
+  if (track_index > 0) track_index -= 1;
+  // console.log(track_index);
+}
+
+// Event Handlers:
+
+next_button.addEventListener("click", () => {
+  nextTrack();
+});
+
+previous_button.addEventListener("click", () => {
+  previousTrack();
+});
+
+play_pause_button.addEventListener("click", () => {
+  if (!is_playing) {
+    // console.log("Play Track");
+    is_playing = true;
+  } else {
+    // console.log("Pause Track");
+    is_playing = false;
+  }
+});
