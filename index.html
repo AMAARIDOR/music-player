@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Player</title>
     <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/1899e3f67e.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <div class="elements-container">
+      <div class="song-status">Nothing playing</div>
+      <div class="song-image">
+        <img src="/assets/images/Default-Image.png" alt="default-image" />
+      </div>
+      <div class="song-name">Song name</div>
+      <div class="song-artist">Song artist</div>
+    </div>
+    <div class="controllers-container">
+      <div class="current-time">00:00</div>
+      <input class="audio-slider" type="range" />
+      <div class="total-duration">00:00</div>
+      <input class="volume-slider" type="range" />
+      <div class="previous-button">
+        <i class="fa-sharp fa-solid fa-backward"></i>
+      </div>
+      <div class="play-pause-button">
+        <i class="fa-sharp fa-solid fa-play"></i>
+      </div>
+      <div class="next-button">
+        <i class="fa-sharp fa-solid fa-forward"></i>
+      </div>
+    </div>
+    <script src="/scripts/script.js"></script>
+  </body>
 </html>
