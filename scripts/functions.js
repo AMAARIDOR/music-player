@@ -22,10 +22,14 @@ function nextTrack() {
   track_index += 1;
   if (track_index === songs_list.length) track_index = 0;
   updateTrack();
+  loadTrack();
+  is_playing = true;
 }
 
 function previousTrack() {
   track_index -= 1;
   if (track_index < 0) track_index = songs_list.length - 1;
   updateTrack();
+  loadTrack();
+  is_playing = true;
 }
