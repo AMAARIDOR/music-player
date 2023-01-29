@@ -1,3 +1,5 @@
+"use strict";
+
 const songsList = [
   {
     name: "On tha Linë",
