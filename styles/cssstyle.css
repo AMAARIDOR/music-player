@@ -5,11 +5,10 @@
 }
 
 body {
-  width: 30%;
+  width: 35%;
   margin: 0 auto;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  padding: 50px;
 }
 
 .audioplayer-container {
