@@ -1,3 +1,62 @@
+.audioplayer-container .controllers-container .controller-buttons, .audioplayer-container .controllers-container .volume-controller-sliders, .audioplayer-container .controllers-container .sliders-and-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+body {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  padding: 50px;
+}
+
+.audioplayer-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px black solid;
+  border-radius: 35px;
+}
+.audioplayer-container .elements-container .song-image {
+  height: 350px;
+  width: 350px;
+}
+.audioplayer-container .elements-container .song-status {
+  font-size: 25px;
+  font-weight: 400;
+}
+.audioplayer-container .elements-container .song-name {
+  font-size: 50px;
+  font-weight: 600;
+}
+.audioplayer-container .elements-container .song-artist {
+  font-size: 25px;
+  font-weight: 500;
+}
+.audioplayer-container .controllers-container .sliders-and-time {
+  margin: 20px;
+  gap: 20px;
+  font-size: 15px;
+  font-weight: 400;
+}
+.audioplayer-container .controllers-container .sliders-and-time .audio-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+}
+.audioplayer-container .controllers-container .volume-controller-sliders {
+  margin: 20px;
+  gap: 20px;
+}
+.audioplayer-container .controllers-container .volume-controller-sliders .volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35%;
+}
+.audioplayer-container .controllers-container .controller-buttons {
+  margin: 20px;
+  gap: 50px;
+}
 
 /*# sourceMappingURL=cssstyle.css.map */

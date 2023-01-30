@@ -1,0 +1,85 @@
+$default-gap: 20px;
+
+$primary-font-family: "Poppins", sans-serif;
+
+$primary-font-size: 50px;
+$secondary-font-size: 25px;
+$tertiary-font-size: 15px;
+
+$primary-font-weight: 400;
+$secondary-font-weight: 500;
+$tertiary-font-weight: 600;
+
+@mixin theme() {
+  background-color: $theme;
+}
+
+%flex-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: $primary-font-family;
+  padding: 50px;
+}
+
+.audioplayer-container {
+  margin: $default-gap;
+  padding: $default-gap;
+  border: 1px black solid;
+  border-radius: 35px;
+  .elements-container {
+    .song-image {
+      height: 350px;
+      width: 350px;
+    }
+    .song-status {
+      font-size: $secondary-font-size;
+      font-weight: $primary-font-weight;
+    }
+    .song-name {
+      font-size: $primary-font-size;
+      font-weight: $tertiary-font-weight;
+    }
+    .song-artist {
+      font-size: $secondary-font-size;
+      font-weight: $secondary-font-weight;
+    }
+  }
+  .controllers-container {
+    .sliders-and-time {
+      @extend %flex-elements;
+      margin: $default-gap;
+      gap: $default-gap;
+      font-size: $tertiary-font-size;
+      font-weight: $primary-font-weight;
+
+      .audio-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+      }
+    }
+    .volume-controller-sliders {
+      @extend %flex-elements;
+      margin: $default-gap;
+      gap: $default-gap;
+
+      .volume-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 35%;
+      }
+    }
+    .controller-buttons {
+      @extend %flex-elements;
+      margin: $default-gap;
+      gap: 50px;
+    }
+  }
+}
