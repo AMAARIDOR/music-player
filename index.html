@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Player</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/cssstyle.css" />
     <script
       src="https://kit.fontawesome.com/1899e3f67e.js"
       crossorigin="anonymous"
@@ -24,20 +24,26 @@
         <div class="song-artist">Song artist</div>
       </div>
       <div class="controllers-container">
-        <div class="current-time">00:00</div>
-        <input class="audio-slider" min="0" max="100" type="range" />
-        <div class="total-duration">00:00</div>
-        <div><i class="fa-sharp fa-solid fa-volume-low"></i></div>
-        <input class="volume-slider" min="0" max="100" type="range" />
-        <div><i class="fa-sharp fa-solid fa-volume-high"></i></div>
-        <div class="previous-button">
-          <i class="fa-sharp fa-solid fa-backward"></i>
+        <div class="sliders">
+          <div class="current-time">00:00</div>
+          <input class="audio-slider" min="0" max="100" type="range" />
+          <div class="total-duration">00:00</div>
         </div>
-        <div class="play-pause-button">
-          <i class="fa-sharp fa-solid fa-play"></i>
+        <div class="volume-controller-buttons">
+          <div><i class="fa-sharp fa-solid fa-volume-low"></i></div>
+          <input class="volume-slider" min="0" max="100" type="range" />
+          <div><i class="fa-sharp fa-solid fa-volume-high"></i></div>
         </div>
-        <div class="next-button">
-          <i class="fa-sharp fa-solid fa-forward"></i>
+        <div class="controller-buttons">
+          <div class="previous-button">
+            <i class="fa-sharp fa-solid fa-backward"></i>
+          </div>
+          <div class="play-pause-button">
+            <i class="fa-sharp fa-solid fa-play"></i>
+          </div>
+          <div class="next-button">
+            <i class="fa-sharp fa-solid fa-forward"></i>
+          </div>
         </div>
       </div>
     </div>
