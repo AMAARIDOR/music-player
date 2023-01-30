@@ -19,6 +19,7 @@ const audioElement = document.createElement("audio");
 
 let trackIndex = 0;
 let isPlaying = false;
+let currentTrack;
 
 // function updateTrack() {
 //   audioElement.src = songsList[trackIndex].path;
