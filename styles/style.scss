@@ -79,6 +79,22 @@ body {
       @extend %flex-elements;
       margin: $default-gap;
       gap: 50px;
+
+      .flex-center {
+        @extend %flex-elements;
+      }
+
+      .play-pause-button {
+        height: 100px;
+        width: 100px;
+      }
+
+      div {
+        border-radius: 50%;
+        border: 1px black solid;
+        height: 75px;
+        width: 75px;
+      }
     }
   }
 }
