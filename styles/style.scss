@@ -106,7 +106,7 @@ body {
     .controller-buttons {
       @extend %flex-elements;
       margin: $default-gap;
-      gap: 50px;
+      gap: 40px;
 
       .flex-center {
         @extend %flex-elements;
@@ -116,13 +116,7 @@ body {
         height: 100px;
         width: 100px;
         background-color: #a5c9ca;
-      }
-
-      div {
         border-radius: 50%;
-        height: 75px;
-        width: 75px;
-        background-color: #395b64;
       }
     }
   }
