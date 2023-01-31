@@ -1,7 +1,4 @@
-.audioplayer-container .controllers-container .controller-buttons .flex-center,
-.audioplayer-container .controllers-container .controller-buttons,
-.audioplayer-container .controllers-container .volume-controller-sliders,
-.audioplayer-container .controllers-container .sliders-and-time {
+.audioplayer-container .controllers-container .controller-buttons .flex-center, .audioplayer-container .controllers-container .controller-buttons, .audioplayer-container .controllers-container .volume-controller-sliders, .audioplayer-container .controllers-container .sliders-and-time {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +14,15 @@ body {
 
 .audioplayer-container {
   margin: 30px;
-  padding: 30px;
+  padding: 50px;
   background-color: #292929;
   color: #fff;
   border: 1px black solid;
   border-radius: 35px;
   box-shadow: 2px 2px 20px #64746f;
+}
+.audioplayer-container .elements-container .padding-bottom {
+  padding-bottom: 30px;
 }
 .audioplayer-container .elements-container .song-image {
   height: 350px;
@@ -58,10 +58,7 @@ body {
   background-color: #e7f6f2;
   border-radius: 10px;
 }
-.audioplayer-container
-  .controllers-container
-  .sliders-and-time
-  .audio-slider::-webkit-slider-thumb {
+.audioplayer-container .controllers-container .sliders-and-time .audio-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -73,10 +70,7 @@ body {
   margin: 20px;
   gap: 20px;
 }
-.audioplayer-container
-  .controllers-container
-  .volume-controller-sliders
-  .volume-slider {
+.audioplayer-container .controllers-container .volume-controller-sliders .volume-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 35%;
@@ -84,10 +78,7 @@ body {
   background-color: #e7f6f2;
   border-radius: 10px;
 }
-.audioplayer-container
-  .controllers-container
-  .volume-controller-sliders
-  .volume-slider::-webkit-slider-thumb {
+.audioplayer-container .controllers-container .volume-controller-sliders .volume-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 20px;
@@ -99,10 +90,7 @@ body {
   margin: 20px;
   gap: 40px;
 }
-.audioplayer-container
-  .controllers-container
-  .controller-buttons
-  .play-pause-button {
+.audioplayer-container .controllers-container .controller-buttons .play-pause-button {
   height: 100px;
   width: 100px;
   background-color: #a5c9ca;

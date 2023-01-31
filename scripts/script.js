@@ -17,9 +17,66 @@ const nextButton = document.querySelector(".next-button");
 
 const audioElement = document.createElement("audio");
 
-let trackIndex = 0;
+let trackIndex = -1;
 let isPlaying = false;
 let currentTrack;
+
+function checkPlayOrPause() {
+  if (!isPlaying) {
+    playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-play fa-3x"></i>`;
+  } else {
+    playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-pause fa-3x"></i>`;
+  }
+}
+
+function loadTrack(i) {
+  isPlaying = true;
+  audioElement.src = songsList[i].path;
+  trackCover.src = songsList[i].image;
+  trackName.textContent = songsList[i].name;
+  trackArtist.textContent = songsList[i].artist;
+  trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
+  checkPlayOrPause();
+}
+
+function nextTrack() {
+  trackIndex++;
+  loadTrack(trackIndex);
+  playTrack();
+  // checkPlayOrPause();
+  console.log(trackIndex);
+}
+
+function previousTrack() {
+  trackIndex--;
+  loadTrack(trackIndex);
+  playTrack();
+  // checkPlayOrPause();
+  console.log(trackIndex);
+}
+
+function playTrack() {
+  audioElement.play();
+}
+
+function pauseTrack() {
+  audioElement.pause();
+}
+
+function playPauseTrack() {
+  if (!isPlaying) {
+    playTrack();
+    isPlaying = true;
+  } else {
+    pauseTrack();
+    isPlaying = false;
+  }
+  checkPlayOrPause();
+}
+
+nextButton.addEventListener("click", nextTrack);
+previousButton.addEventListener("click", previousTrack);
+playPauseButton.addEventListener("click", playPauseTrack);
 
 // function updateTrack() {
 //   audioElement.src = songsList[trackIndex].path;

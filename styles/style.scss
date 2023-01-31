@@ -26,7 +26,7 @@ body {
 
 .audioplayer-container {
   margin: $default-gap + 10px;
-  padding: $default-gap + 10px;
+  padding: $default-gap + 30px;
   background-color: #292929;
   color: #fff;
   border: 1px black solid;
@@ -34,6 +34,10 @@ body {
   box-shadow: 2px 2px 20px #64746f;
 
   .elements-container {
+    .padding-bottom {
+      padding-bottom: $default-gap + 10px;
+    }
+
     .song-image {
       height: 350px;
       width: 350px;
