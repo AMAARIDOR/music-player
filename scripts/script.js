@@ -40,19 +40,17 @@ function loadTrack(i) {
 }
 
 function nextTrack() {
-  trackIndex++;
+  if (trackIndex < songsList.length - 1) trackIndex++;
+  else trackIndex = 0;
   loadTrack(trackIndex);
   playTrack();
-  // checkPlayOrPause();
-  console.log(trackIndex);
 }
 
 function previousTrack() {
-  trackIndex--;
+  if (trackIndex > 0) trackIndex--;
+  else trackIndex = songsList.length - 1;
   loadTrack(trackIndex);
   playTrack();
-  // checkPlayOrPause();
-  console.log(trackIndex);
 }
 
 function playTrack() {
