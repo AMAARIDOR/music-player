@@ -17,7 +17,7 @@ $tertiary-font-weight: 600;
 }
 
 body {
-  width: 35%;
+  width: 650px;
   margin: 0 auto;
   text-align: center;
   font-family: $primary-font-family;
@@ -67,10 +67,14 @@ body {
       font-size: $tertiary-font-size;
       font-weight: $primary-font-weight;
 
+      .time-indicators {
+        width: 50px;
+      }
+
       .audio-slider {
         -webkit-appearance: none;
         appearance: none;
-        width: 100%;
+        width: 250px;
         background-color: #e7f6f2;
         border-radius: 10px;
       }
@@ -92,7 +96,7 @@ body {
       .volume-slider {
         -webkit-appearance: none;
         appearance: none;
-        width: 35%;
+        width: 125px;
         height: 10px;
         background-color: #e7f6f2;
         border-radius: 10px;

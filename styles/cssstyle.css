@@ -5,7 +5,7 @@
 }
 
 body {
-  width: 35%;
+  width: 650px;
   margin: 0 auto;
   text-align: center;
   font-family: "Poppins", sans-serif;
@@ -51,10 +51,13 @@ body {
   font-size: 15px;
   font-weight: 400;
 }
+.audioplayer-container .controllers-container .sliders-and-time .time-indicators {
+  width: 50px;
+}
 .audioplayer-container .controllers-container .sliders-and-time .audio-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 100%;
+  width: 250px;
   background-color: #e7f6f2;
   border-radius: 10px;
 }
@@ -73,7 +76,7 @@ body {
 .audioplayer-container .controllers-container .volume-controller-sliders .volume-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 35%;
+  width: 125px;
   height: 10px;
   background-color: #e7f6f2;
   border-radius: 10px;

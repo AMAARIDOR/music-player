@@ -8,7 +8,7 @@ const trackArtist = document.querySelector(".song-artist");
 const currentTime = document.querySelector(".current-time");
 const totalDuration = document.querySelector(".total-duration");
 
-const seekSlider = document.querySelector(".audio-slider");
+const audioSlider = document.querySelector(".audio-slider");
 const volumeSlider = document.querySelector(".volume-slider");
 
 const previousButton = document.querySelector(".previous-button");
@@ -29,6 +29,17 @@ function checkPlayOrPause() {
   }
 }
 
+function updateMediaTime() {
+  let currentMediaTime = Math.ceil(audioElement.currentTime);
+
+  if (isPlaying) {
+    currentTime.textContent = (currentMediaTime / 60)
+      .toFixed(2)
+      .replace(".", ":");
+    audioSlider.value = currentMediaTime;
+  }
+}
+
 function loadTrack(i) {
   isPlaying = true;
   audioElement.src = songsList[i].path;
@@ -36,7 +47,18 @@ function loadTrack(i) {
   trackName.textContent = songsList[i].name;
   trackArtist.textContent = songsList[i].artist;
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
+
+  setTimeout(() => {
+    totalDuration.textContent = (Math.trunc(audioElement.duration) / 60)
+      .toFixed(2)
+      .replace(".", ":");
+  }, 100);
+
   checkPlayOrPause();
+
+  setInterval(updateMediaTime, 1000);
+
+  audioElement.addEventListener("ended", nextTrack);
 }
 
 function nextTrack() {
