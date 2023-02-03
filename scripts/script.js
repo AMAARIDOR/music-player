@@ -30,13 +30,9 @@ function checkPlayOrPause() {
 }
 
 function updateMediaTime() {
-  let currentMediaTime = Math.ceil(audioElement.currentTime);
-
   if (isPlaying) {
-    currentTime.textContent = (currentMediaTime / 60)
-      .toFixed(2)
-      .replace(".", ":");
-    audioSlider.value = currentMediaTime;
+    let currentMediaTime = Math.ceil(audioElement.currentTime);
+    console.log(currentMediaTime);
   }
 }
 
