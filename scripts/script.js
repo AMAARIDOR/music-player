@@ -19,7 +19,7 @@ const audioElement = document.createElement("audio");
 
 let trackIndex = -1;
 let isPlaying = false;
-let currentTrack;
+let updateTimer;
 
 function checkPlayOrPause() {
   if (!isPlaying) {
@@ -29,14 +29,8 @@ function checkPlayOrPause() {
   }
 }
 
-function updateMediaTime() {
-  if (isPlaying) {
-    let currentMediaTime = Math.ceil(audioElement.currentTime);
-    console.log(currentMediaTime);
-  }
-}
-
 function loadTrack(i) {
+  clearInterval(updateTimer);
   isPlaying = true;
   audioElement.src = songsList[i].path;
   trackCover.src = songsList[i].image;
@@ -45,14 +39,22 @@ function loadTrack(i) {
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
 
   setTimeout(() => {
-    totalDuration.textContent = (Math.trunc(audioElement.duration) / 60)
+    totalDuration.textContent = (audioElement.duration / 60)
       .toFixed(2)
       .replace(".", ":");
   }, 100);
 
   checkPlayOrPause();
 
-  setInterval(updateMediaTime, 1000);
+  updateTimer = setInterval(function updateMediaTime() {
+    if (isPlaying) {
+      let currentMediaTime = (
+        Math.ceil(audioElement.currentTime) / 100
+      ).toFixed(2);
+
+      console.log(`0${currentMediaTime}`);
+    }
+  }, 1000);
 
   audioElement.addEventListener("ended", nextTrack);
 }
@@ -93,57 +95,3 @@ function playPauseTrack() {
 nextButton.addEventListener("click", nextTrack);
 previousButton.addEventListener("click", previousTrack);
 playPauseButton.addEventListener("click", playPauseTrack);
-
-// function updateTrack() {
-//   audioElement.src = songsList[trackIndex].path;
-//   trackCover.src = songsList[trackIndex].image;
-//   trackName.textContent = songsList[trackIndex].name;
-//   trackArtist.textContent = songsList[trackIndex].artist;
-//   trackStatus.textContent = `Now playing audio ${trackIndex + 1} of ${
-//     songsList.length
-//   }`;
-
-//   audioElement.addEventListener("canplaythrough", () => {
-//     totalDuration.textContent = audioElement.duration;
-//   });
-// }
-
-// function loadTrack() {
-//   audioElement.play();
-// }
-
-// function pauseTrack() {
-//   audioElement.pause();
-// }
-
-// function nextTrack() {
-//   if (trackIndex === songsList.length) trackIndex = 0;
-//   updateTrack();
-//   loadTrack();
-//   isPlaying = true;
-//   trackIndex += 1;
-//   console.log(trackIndex);
-// }
-
-// function previousTrack() {
-//   if (trackIndex < 0) trackIndex = songsList.length - 1;
-//   updateTrack();
-//   loadTrack();
-//   isPlaying = true;
-//   trackIndex -= 1;
-//   console.log(trackIndex);
-// }
-
-// nextButton.addEventListener("click", nextTrack);
-
-// previousButton.addEventListener("click", previousTrack);
-
-// playPauseButton.addEventListener("click", () => {
-//   if (!isPlaying) {
-//     isPlaying = true;
-//     loadTrack();
-//   } else {
-//     isPlaying = false;
-//     pauseTrack();
-//   }
-// });
