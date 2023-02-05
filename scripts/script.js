@@ -29,7 +29,6 @@ function seekTo() {
 function changeVolume() {
   let currentVolume = volumeSlider.value / 10;
   audioElement.volume = currentVolume;
-  console.log(currentVolume);
 }
 
 function checkPlayOrPause() {
