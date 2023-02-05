@@ -21,6 +21,17 @@ let trackIndex = -1;
 let isPlaying = false;
 let updateTimer;
 
+function seekTo() {
+  let seekTo = audioElement.duration * (audioSlider.value / 100);
+  audioElement.currentTime = seekTo;
+}
+
+function changeVolume() {
+  let currentVolume = volumeSlider.value / 10;
+  audioElement.volume = currentVolume;
+  console.log(currentVolume);
+}
+
 function checkPlayOrPause() {
   if (!isPlaying) {
     playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-play fa-3x"></i>`;
@@ -31,6 +42,7 @@ function checkPlayOrPause() {
 
 function loadTrack(i) {
   clearInterval(updateTimer);
+  resetValues();
   isPlaying = true;
   audioElement.src = songsList[i].path;
   trackCover.src = songsList[i].image;
@@ -38,21 +50,34 @@ function loadTrack(i) {
   trackArtist.textContent = songsList[i].artist;
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
 
-  setTimeout(() => {
-    totalDuration.textContent = (audioElement.duration / 60)
-      .toFixed(2)
-      .replace(".", ":");
-  }, 100);
-
   checkPlayOrPause();
 
   updateTimer = setInterval(function updateMediaTime() {
-    if (isPlaying) {
-      let currentMediaTime = (
-        Math.ceil(audioElement.currentTime) / 100
-      ).toFixed(2);
+    let seekPosition = 0;
 
-      console.log(`0${currentMediaTime}`);
+    setTimeout(() => {
+      if (!isNaN(audioElement.duration)) {
+        seekPosition = audioElement.currentTime * (100 / audioElement.duration);
+        audioSlider.value = seekPosition;
+      }
+    }, 100);
+    if (isPlaying) {
+      let currentMinutes = Math.floor(audioElement.currentTime / 60);
+      let currentSeconds = Math.floor(
+        audioElement.currentTime - currentMinutes * 60
+      );
+      let durationMinutes = Math.floor(audioElement.duration / 60);
+      let durationSeconds = Math.floor(
+        audioElement.duration - durationMinutes * 60
+      );
+
+      if (currentSeconds < 10) currentSeconds = "0" + currentSeconds;
+      if (currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+      if (durationSeconds < 10) durationSeconds = "0" + durationSeconds;
+      if (durationMinutes < 10) durationMinutes = "0" + durationMinutes;
+
+      currentTime.textContent = `${currentMinutes}:${currentSeconds}`;
+      totalDuration.textContent = `${durationMinutes}:${durationSeconds}`;
     }
   }, 1000);
 
@@ -79,6 +104,12 @@ function playTrack() {
 
 function pauseTrack() {
   audioElement.pause();
+}
+
+function resetValues() {
+  currentTime.textContent = "00:00";
+  totalDuration.textContent = "00:00";
+  audioSlider.value = 0;
 }
 
 function playPauseTrack() {

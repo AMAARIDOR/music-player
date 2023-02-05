@@ -38,12 +38,19 @@
             min="0"
             max="100"
             type="range"
+            onchange="seekTo()"
           />
           <div class="total-duration time-indicators">-:-</div>
         </div>
         <div class="volume-controller-sliders">
           <div><i class="fa-sharp fa-solid fa-volume-low"></i></div>
-          <input class="volume-slider" min="0" max="10" type="range" />
+          <input
+            class="volume-slider"
+            min="0"
+            max="10"
+            type="range"
+            onchange="changeVolume()"
+          />
           <div><i class="fa-sharp fa-solid fa-volume-high"></i></div>
         </div>
         <div class="controller-buttons">
