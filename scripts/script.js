@@ -65,6 +65,36 @@ function changeVolume() {
   audioElement.volume = currentVolume;
 }
 
+function updateMediaTime() {
+  let seekPosition = 0;
+
+  setTimeout(() => {
+    if (!isNaN(audioElement.duration)) {
+      seekPosition = audioElement.currentTime * (100 / audioElement.duration);
+      audioSlider.value = seekPosition;
+    }
+  }, 100);
+
+  if (isPlaying) {
+    let currentMinutes = Math.floor(audioElement.currentTime / 60);
+    let currentSeconds = Math.floor(
+      audioElement.currentTime - currentMinutes * 60
+    );
+    let durationMinutes = Math.floor(audioElement.duration / 60);
+    let durationSeconds = Math.floor(
+      audioElement.duration - durationMinutes * 60
+    );
+
+    if (currentSeconds < 10) currentSeconds = "0" + currentSeconds;
+    if (currentMinutes < 10) currentMinutes = "0" + currentMinutes;
+    if (durationSeconds < 10) durationSeconds = "0" + durationSeconds;
+    if (durationMinutes < 10) durationMinutes = "0" + durationMinutes;
+
+    currentTime.textContent = `${currentMinutes}:${currentSeconds}`;
+    totalDuration.textContent = `${durationMinutes}:${durationSeconds}`;
+  }
+}
+
 function loadTrack(i) {
   clearInterval(updateTimer);
   resetValues();
@@ -75,34 +105,7 @@ function loadTrack(i) {
   trackArtist.textContent = songsList[i].artist;
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
 
-  updateTimer = setInterval(function updateMediaTime() {
-    let seekPosition = 0;
-
-    setTimeout(() => {
-      if (!isNaN(audioElement.duration)) {
-        seekPosition = audioElement.currentTime * (100 / audioElement.duration);
-        audioSlider.value = seekPosition;
-      }
-    }, 100);
-    if (isPlaying) {
-      let currentMinutes = Math.floor(audioElement.currentTime / 60);
-      let currentSeconds = Math.floor(
-        audioElement.currentTime - currentMinutes * 60
-      );
-      let durationMinutes = Math.floor(audioElement.duration / 60);
-      let durationSeconds = Math.floor(
-        audioElement.duration - durationMinutes * 60
-      );
-
-      if (currentSeconds < 10) currentSeconds = "0" + currentSeconds;
-      if (currentMinutes < 10) currentMinutes = "0" + currentMinutes;
-      if (durationSeconds < 10) durationSeconds = "0" + durationSeconds;
-      if (durationMinutes < 10) durationMinutes = "0" + durationMinutes;
-
-      currentTime.textContent = `${currentMinutes}:${currentSeconds}`;
-      totalDuration.textContent = `${durationMinutes}:${durationSeconds}`;
-    }
-  }, 1000);
+  updateTimer = setInterval(updateMediaTime, 1000);
 
   audioElement.addEventListener("ended", nextTrack);
 }
