@@ -150,3 +150,5 @@ function playPauseTrack() {
 nextButton.addEventListener("click", nextTrack);
 previousButton.addEventListener("click", previousTrack);
 playPauseButton.addEventListener("click", playPauseTrack);
+audioSlider.addEventListener("change", seekTo);
+volumeSlider.addEventListener("change", changeVolume);
