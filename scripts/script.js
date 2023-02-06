@@ -31,14 +31,6 @@ function changeVolume() {
   audioElement.volume = currentVolume;
 }
 
-function checkPlayOrPause() {
-  if (!isPlaying) {
-    playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-play fa-3x"></i>`;
-  } else {
-    playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-pause fa-3x"></i>`;
-  }
-}
-
 function loadTrack(i) {
   clearInterval(updateTimer);
   resetValues();
@@ -48,8 +40,6 @@ function loadTrack(i) {
   trackName.textContent = songsList[i].name;
   trackArtist.textContent = songsList[i].artist;
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
-
-  checkPlayOrPause();
 
   updateTimer = setInterval(function updateMediaTime() {
     let seekPosition = 0;
@@ -99,10 +89,14 @@ function previousTrack() {
 
 function playTrack() {
   audioElement.play();
+  isPlaying = true;
+  playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-pause fa-3x"></i>`;
 }
 
 function pauseTrack() {
   audioElement.pause();
+  isPlaying = false;
+  playPauseButton.innerHTML = `<i class="fa-sharp fa-solid fa-play fa-3x"></i>`;
 }
 
 function resetValues() {
@@ -114,12 +108,9 @@ function resetValues() {
 function playPauseTrack() {
   if (!isPlaying) {
     playTrack();
-    isPlaying = true;
   } else {
     pauseTrack();
-    isPlaying = false;
   }
-  checkPlayOrPause();
 }
 
 nextButton.addEventListener("click", nextTrack);
