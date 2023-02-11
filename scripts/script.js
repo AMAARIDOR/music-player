@@ -66,8 +66,8 @@ function loadTrack(i) {
   clearInterval(updateTimer);
   resetValues();
   isPlaying = true;
-  audioElement.src = `music-player/${songsList[i].path}`;
-  trackCover.src = `music-player/${songsList[i].image}`;
+  audioElement.src = `./${songsList[i].path}`;
+  trackCover.src = `./${songsList[i].image}`;
   trackName.textContent = songsList[i].name;
   trackArtist.textContent = songsList[i].artist;
   trackStatus.textContent = `Playing song ${i + 1} out of ${songsList.length}`;
