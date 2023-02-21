@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 "use strict";
 
+// SELECTORS:
+
 const trackStatus = document.querySelector(".song-status");
 const trackCover = document.querySelector(".song-image");
 const trackName = document.querySelector(".song-name");
@@ -17,6 +19,8 @@ const playPauseButton = document.querySelector(".play-pause-button");
 const nextButton = document.querySelector(".next-button");
 
 const audioElement = document.createElement("audio");
+
+// STARTING VARIABLES
 
 let trackIndex = -1;
 let isPlaying = false;
